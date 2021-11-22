@@ -124,14 +124,12 @@ void blockSort(int* arrPtr, int length)
 	}
 	
 	for (int  i = 0; i < b; i++)
-		delete[] arr[i];
-	delete[] arr;
+		free(arr[i]);
+	free(arr);
 }
 
 int main()
 {
-	std::cout << sizeof(int) << std::endl;
-
 	// Task 1
 	const int LENGTH = 50;
 	int* arrPtr = initArr(LENGTH);
@@ -151,6 +149,6 @@ int main()
 	blockSort(arrPtr, LENGTH);
 	printArr(arrPtr, LENGTH);
 	
-	delete[] arrPtr;
+	free(arrPtr);
 	return 0;
 }
